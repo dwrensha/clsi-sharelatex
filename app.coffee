@@ -63,9 +63,11 @@ app.use (error, req, res, next) ->
 	logger.error err: error, "server error"
 	res.send 500
 
-app.listen port = (Settings.internal?.clsi?.port or 3013), host = (Settings.internal?.clsi?.host or "localhost"), (error) ->
-	logger.log "CLSI listening on #{host}:#{port}"
+module.exports = {app:app}
 
-setInterval () ->
-	ProjectPersistenceManager.clearExpiredProjects()
-, tenMinutes = 10 * 60 * 1000
+#app.listen port = (Settings.internal?.clsi?.port or 3013), host = (Settings.internal?.clsi?.host or "localhost"), (error) ->
+#	logger.log "CLSI listening on #{host}:#{port}"
+
+#setInterval () ->
+#	ProjectPersistenceManager.clearExpiredProjects()
+#, tenMinutes = 10 * 60 * 1000
